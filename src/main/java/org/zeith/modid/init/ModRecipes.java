@@ -15,8 +15,10 @@ public class ModRecipes
     {
         event.shaped()
                 .result(ItemsMI.WIZZARD_STAFF)
-                .shape("eee", "eee", "eee")
+                .shape(" e ", "dcd", " e ")
                 .map('e', Items.EMERALD_BLOCK)
+                .map('d', Items.DIAMOND_BLOCK)
+                .map('c', Items.IRON_BLOCK)
                 .register();
     }
 }

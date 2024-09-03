@@ -15,18 +15,6 @@ import org.zeith.modid.items.ItemWizzardStaff;
 @SimplyRegister
 public interface ItemsMI
 {
-	@RegistryName("test")
-	Item TEST_ITEM = ModId.MOD_TAB.add(new Item(new Item.Properties())
-	{
-		@Override
-		public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand)
-		{
-			System.out.println(player.getItemInHand(hand));
-			return InteractionResultHolder.success(player.getItemInHand(hand));
-		}
-	});
-
-
 	@RegistryName("wizzard_staff")
 	Item WIZZARD_STAFF = ModId.MOD_TAB.add(new ItemWizzardStaff(new Item.Properties()));
 }
