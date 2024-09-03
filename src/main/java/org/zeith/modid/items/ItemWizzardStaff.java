@@ -20,8 +20,6 @@ public class ItemWizzardStaff extends Item
     {
         ItemStack itemstack = player.getItemInHand(hand);
 
-        System.out.println(player.getItemInHand(hand));
-
         if (!level.isClientSide)
         {
             EntityLightningBall arrow = new EntityLightningBall(level, player);
