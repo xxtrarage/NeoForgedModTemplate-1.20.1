@@ -10,6 +10,7 @@ import org.zeith.hammerlib.annotations.RegistryName;
 import org.zeith.hammerlib.annotations.SimplyRegister;
 import org.zeith.modid.ModId;
 import org.zeith.modid.entity.EntityLightningBall;
+import org.zeith.modid.items.ItemWizzardStaff;
 
 @SimplyRegister
 public interface ItemsMI
@@ -27,23 +28,5 @@ public interface ItemsMI
 
 
 	@RegistryName("wizzard_staff")
-	Item TEST_ITEM2 = ModId.MOD_TAB.add(new Item(new Item.Properties())
-	{
-		@Override
-		public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand)
-		{
-			ItemStack itemstack = player.getItemInHand(hand);
-
-			System.out.println(player.getItemInHand(hand));
-
-			if (!level.isClientSide)
-			{
-				EntityLightningBall arrow = new EntityLightningBall(level, player);
-				arrow.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 1.0F);
-				level.addFreshEntity(arrow);
-			}
-
-			return InteractionResultHolder.success(itemstack);
-		}
-	});
+	Item WIZZARD_STAFF = ModId.MOD_TAB.add(new ItemWizzardStaff(new Item.Properties()));
 }

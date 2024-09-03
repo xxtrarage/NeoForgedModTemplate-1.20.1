@@ -14,7 +14,7 @@ public class ModRecipes
     public void provideRecipes(RegisterRecipesEvent event)
     {
         event.shaped()
-                .result(ItemsMI.TEST_ITEM2)
+                .result(ItemsMI.WIZZARD_STAFF)
                 .shape("eee", "eee", "eee")
                 .map('e', Items.EMERALD_BLOCK)
                 .register();
