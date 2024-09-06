@@ -27,11 +27,14 @@ public class LightningBoltMixin {
                 for (int y = -radius; y <= radius; y++) {
                     for (int z = -radius; z <= radius; z++) {
                         BlockPos checkPos = pos.offset(x, y, z);
-                        double distance = Math.sqrt(checkPos.distSqr(pos));
+                        double distance = Math.sqrt(checkPos.distSqr(pos)) - 1;
+
+                        distance = Math.max(0, distance);
+
                         if (distance <= radius) {
                             if (level.getBlockEntity(checkPos) instanceof PowerGeneratorBlockEntity) {
                                 PowerGeneratorBlockEntity tile = (PowerGeneratorBlockEntity) level.getBlockEntity(checkPos);
-                                int energyToAdd = Math.max(0, 16000 - (int) (distance * 2000));
+                                int energyToAdd = (int) ((1 - (distance / radius)) * 16000);
                                 tile.setEnergy(tile.getEnergy() + energyToAdd);
                                 tile.transferTo();
                             }
@@ -42,3 +45,4 @@ public class LightningBoltMixin {
         }
     }
 }
+
