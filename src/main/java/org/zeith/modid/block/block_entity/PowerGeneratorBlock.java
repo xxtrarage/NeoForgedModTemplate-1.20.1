@@ -10,6 +10,8 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.jetbrains.annotations.Nullable;
+import org.zeith.hammerlib.api.forge.BlockAPI;
+
 
 public class PowerGeneratorBlock extends Block implements EntityBlock {
     public PowerGeneratorBlock() {
@@ -25,10 +27,6 @@ public class PowerGeneratorBlock extends Block implements EntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return (level1, pos, state1, blockEntity) -> {
-            if (blockEntity instanceof PowerGeneratorBlockEntity) {
-                ((PowerGeneratorBlockEntity) blockEntity).update();
-            }
-        };
+        return BlockAPI.ticker(level);
     }
 }
