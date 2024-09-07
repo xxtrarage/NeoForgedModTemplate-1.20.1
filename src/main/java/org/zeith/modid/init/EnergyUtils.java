@@ -21,12 +21,8 @@ public class EnergyUtils {
             if (be == null) {
                 continue;
             }
-
-            LazyOptional<IEnergyStorage> storage = LazyOptional.empty();
-
-            if (be.getCapability(ForgeCapabilities.ENERGY, e.getOpposite()).isPresent()) {
-                storage = be.getCapability(ForgeCapabilities.ENERGY, e.getOpposite());
-            } else if (be.getCapability(ForgeCapabilities.ENERGY, null).isPresent()) {
+            LazyOptional<IEnergyStorage> storage = be.getCapability(ForgeCapabilities.ENERGY, e.getOpposite());
+            if (!storage.isPresent()) {
                 storage = be.getCapability(ForgeCapabilities.ENERGY, null);
             }
 
