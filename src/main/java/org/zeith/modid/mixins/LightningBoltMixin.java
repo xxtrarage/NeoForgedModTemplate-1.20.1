@@ -16,6 +16,7 @@ public class LightningBoltMixin {
     @Shadow
     private int life;
 
+    /*
     @Inject(method = "tick", at = @At("TAIL"))
     public void onTick(CallbackInfo info) {
         LightningBolt lightning = (LightningBolt) (Object) this;
@@ -44,5 +45,5 @@ public class LightningBoltMixin {
             }
         }
     }
+    */
 }
-
