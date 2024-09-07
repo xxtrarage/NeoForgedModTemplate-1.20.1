@@ -16,7 +16,6 @@ public class PowerGeneratorBlock extends Block implements EntityBlock {
         super(BlockBehaviour.Properties.of().strength(3.0F, 3.0F));
     }
 
-
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
@@ -28,7 +27,7 @@ public class PowerGeneratorBlock extends Block implements EntityBlock {
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return (level1, pos, state1, blockEntity) -> {
             if (blockEntity instanceof PowerGeneratorBlockEntity) {
-                PowerGeneratorBlockEntity.serverTick(level1, pos, state1, (PowerGeneratorBlockEntity) blockEntity);
+                ((PowerGeneratorBlockEntity) blockEntity).update();
             }
         };
     }
